@@ -1,0 +1,35 @@
+/* ------------------------------------------- Arrow */
+.arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+  position: absolute;
+  top: 50%;
+  z-index: 999;
+  color: #fff;
+}
+
+.arrow--right {
+  right: 25px;
+}
+
+.arrow--left {
+  left: 25px;
+}
+
+.arrow__img--right {
+  width: 40%;
+  padding-left: 5px;
+}
+
+.arrow__img--left {
+  width: 40%;
+  padding-left: 5px;
+  transform: rotate(180deg);
+}

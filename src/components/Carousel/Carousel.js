@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Slide from '../Slide/Slide';
-
-import arrow from './arrow.svg';
+import ArrowButton from '../ArrowButton/ArrowButton';
 
 import './carousel.css';
 
@@ -66,29 +65,12 @@ class Carousel extends Component {
               this.state.images.map((image, i) => <Slide key={i} image={image} />)
             }
           </div>
-          <ButtonPrev goToPrevSlide={this.onClickPrev} />
-          <ButtonNext goToNextSlide={this.onClickNext} />
-
+          <ArrowButton direction='prev' onClickHandler={this.onClickPrev} />
+          <ArrowButton direction='next' onClickHandler={this.onClickNext} />
         </div>
       </div>
     )
   }
-}
-
-const ButtonPrev = (props) => {
-  return (
-    <div className="arrow arrow--left" onClick={props.goToPrevSlide}>
-      <img className="arrow__img--left" src={arrow} alt="left"/>
-    </div>
-  );
-}
-
-const ButtonNext = (props) => {
-  return (
-    <div className="arrow arrow--right" onClick={props.goToNextSlide}>
-      <img className="arrow__img--right" src={arrow} alt="right"/>
-    </div>
-  );
 }
 
 export default Carousel;
