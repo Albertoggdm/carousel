@@ -30,7 +30,18 @@ class Carousel extends React.Component {
   }
 
   render() {
-    return <div>Carousel Component</div>
+    return (
+      <div>
+        <div>Carousel Component</div>
+        <div>
+          {
+            this.state.images.map((image, i) => (
+                <div key={i}> {image.name}</div>
+            ))
+          }
+        </div>
+      </div>
+    )
   }
 }
 
