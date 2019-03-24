@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import Carousel from './components/Carousel'
+
 import './App.css';
+
 
 class App extends Component {
   render() {
@@ -8,7 +11,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>
-            App
+            <Carousel />
           </p>
         </header>
       </div>
