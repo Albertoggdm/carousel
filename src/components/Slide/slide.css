@@ -1,0 +1,16 @@
+/* ------------------------------------------- Slide */
+.slide {
+  background-color: grey;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.slide__caption {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
