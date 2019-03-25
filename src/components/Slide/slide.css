@@ -14,3 +14,12 @@
   position: absolute;
   bottom: 0;
 }
+
+.slide__caption--selected {
+  color: yellow;
+  font-size: larger;
+}
+
+.slide--selected{
+  margin-bottom: 30px;
+}

@@ -24,3 +24,18 @@
   height: 100%;
   width: 100%;
 }
+
+.carousel__container--desk {
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+  height: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel__wrapper--desk {
+  position: relative;
+  height: 100%;
+  width: 25%;
+}
