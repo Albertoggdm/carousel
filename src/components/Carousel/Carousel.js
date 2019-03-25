@@ -51,7 +51,7 @@ class Carousel extends Component {
     if(this.state.selectedId === 0) {
       return this.setState({
         selectedId: this.state.images.length - 1,
-        translateX: this.props.desk?(-(this.slideWidth() * (this.state.images.length - VISIBLE_SLIDES_ITEMS))):-(this.slideWidth() * (this.state.images.length-1))
+        translateX: this.state.desktop?(-(this.slideWidth() * (this.state.images.length - VISIBLE_SLIDES_ITEMS))):-(this.slideWidth() * (this.state.images.length-1))
       })
     }
 
@@ -64,7 +64,7 @@ class Carousel extends Component {
   translationCalcPrev = (prevState) => {
     let translation = prevState.translateX + this.slideWidth();
 
-    if (this.props.desk && (((prevState.selectedId - 1) + (prevState.translateX/this.slideWidth())) >= 0)) {
+    if (this.state.desktop && (((prevState.selectedId - 1) + (prevState.translateX/this.slideWidth())) >= 0)) {
       return prevState.translateX;
     }
     return translation;
@@ -87,7 +87,7 @@ class Carousel extends Component {
   translationCalcNext = (prevState) => {
     let translation = prevState.translateX  - this.slideWidth();
 
-    if (this.props.desk && (((prevState.selectedId + 1) + (prevState.translateX/this.slideWidth())) < VISIBLE_SLIDES_ITEMS)) {
+    if (this.state.desktop && (((prevState.selectedId + 1) + (prevState.translateX/this.slideWidth())) < VISIBLE_SLIDES_ITEMS)) {
       return prevState.translateX;
     }
     return translation;
