@@ -27,7 +27,7 @@
 
 .carousel__container--desk {
   position: relative;
-  width: 1000px;
+  width: 80%;
   margin: 0 auto;
   height: 500px;
   overflow: hidden;

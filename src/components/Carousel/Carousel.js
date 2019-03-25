@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import Slide from '../Slide/Slide';
 import ArrowButton from '../ArrowButton/ArrowButton';
 
@@ -11,44 +13,19 @@ class Carousel extends Component {
     super(props)
 
     this.state = {
-      images: [
-        {
-          url: "https://via.placeholder.com/600/92c952",
-          name: 'picture 0'
-        },
-        {
-          url: "https://via.placeholder.com/600/771796",
-          name: 'picture 1'
-        },
-        {
-          url: "https://via.placeholder.com/600/24f355",
-          name: 'picture 2'
-        },
-        {
-          url: "https://via.placeholder.com/600/d32776",
-          name: 'picture 3'
-        },
-        {
-          url: "https://via.placeholder.com/600/f66b97",
-          name: 'picture 4'
-        },
-        {
-          url: "https://via.placeholder.com/600/56a8c2",
-          name: 'picture 5'
-        },
-        {
-          url: "https://via.placeholder.com/600/b0f7cc",
-          name: 'picture 6'
-        },
-        {
-          url: "https://via.placeholder.com/600/54176f",
-          name: 'picture 7'
-        }
-      ],
-
+      images: [],
       selectedId: 0,
       translateX: 0
     }
+  }
+
+  componentDidMount() {
+    axios.get(`https://pixabay.com/api/?key=9656065-a4094594c34f9ac14c7fc4c39&q=beautiful+landscape&image_type=photo`)
+      .then(res => {
+        const images = res.data.hits.map(picture => {return { url: picture.webformatURL, name: picture.user, likes: picture.likes}});
+
+        this.setState({ images });
+      })
   }
 
   slideWidth = () => {
