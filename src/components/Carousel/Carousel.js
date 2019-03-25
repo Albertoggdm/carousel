@@ -7,6 +7,7 @@ import ArrowButton from '../ArrowButton/ArrowButton';
 import './carousel.css';
 
 const VISIBLE_SLIDES_ITEMS = 4;
+const MOBILE_BREAKPOINT = 800;
 
 class Carousel extends Component {
   constructor(props) {
@@ -14,10 +15,24 @@ class Carousel extends Component {
 
     this.state = {
       images: [],
+      widthScreen: window.innerWidth,
+      desktop: window.innerWidth > MOBILE_BREAKPOINT,
       selectedId: 0,
       translateX: 0
     }
   }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ widthScreen: window.innerWidth, desktop: window.innerWidth > MOBILE_BREAKPOINT });
+  };
 
   componentDidMount() {
     axios.get(`https://pixabay.com/api/?key=9656065-a4094594c34f9ac14c7fc4c39&q=beautiful+landscape&image_type=photo`)
@@ -121,7 +136,7 @@ class Carousel extends Component {
   }
 
   render() {
-    if(this.props.desk)
+    if(this.state.desktop)
       return this.renderDesk()
 
     return this.renderMobile()
